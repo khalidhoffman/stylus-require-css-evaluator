@@ -1,0 +1,33 @@
+{
+  "name": "stylus-require-css-evaluator",
+  "version": "0.0.1",
+  "description": "enables importing of css files in stylus via require",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "stylus": "^0.54.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/khalidhoffman/stylus-require-css-evaluator.git"
+  },
+  "keywords": [
+    "css",
+    "require",
+    "import",
+    "inline",
+    "stylus",
+    "plugin",
+    "evaluator"
+  ],
+  "author": "Khalid Hoffman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khalidhoffman/stylus-require-css-evaluator/issues"
+  },
+  "homepage": "https://github.com/khalidhoffman/stylus-require-css-evaluator#readme"
+}
