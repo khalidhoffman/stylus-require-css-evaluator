@@ -8,10 +8,22 @@ const fs = require('fs'),
     stylusSrc = fs.readFileSync(stylusSrcPath, 'utf8');
 
 describe("RequireCSSEvaluator", function(){
+    const requireCSSEvaluatorPlugin = require('../');
+
+    it("has no bearing unless used", function(done){
+        stylus(stylusSrc)
+            .set('filename', stylusSrcPath)
+            .render(function(err, str){
+                if (err) throw err;
+                assert.equal(str.indexOf('css-require-success') >= 0, false, "css test 'success' should not have been imported");
+                done();
+            })
+    });
+
     it("imports interpolates css files using require", function(done){
         stylus(stylusSrc)
             .set('filename', stylusSrcPath)
-            .use(require('../index'))
+            .use(requireCSSEvaluatorPlugin)
             .render(function(err, str){
                 if (err) throw err;
                 assert.equal(str.indexOf('css-require-success') >= 0, true, "css test 'success' should have been imported");
