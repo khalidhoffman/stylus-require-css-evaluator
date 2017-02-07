@@ -93,6 +93,9 @@ class RequireCSSEvaluator extends Evaluator {
 
         // shortcut for empty files
         if (!str.trim()) return nodes.null;
+        
+        // Prevent Stylus from attempting to parse CSS urls
+        str = file.endsWith('.css') ? `@css { ${str} }` : str;
 
         // Expose imports
         node.path = file;
