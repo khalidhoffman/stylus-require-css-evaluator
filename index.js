@@ -1,3 +1,5 @@
+"use strict";
+
 const RequireCSSEvaluator = require('./evaluator');
 
 module.exports = function (ast, options) {

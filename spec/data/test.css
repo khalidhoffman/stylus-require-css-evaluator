@@ -1,3 +1,6 @@
 .result{
     content: 'css-require-success';
 }
+.url-test{
+	content: url(http://url-success.com)
+}

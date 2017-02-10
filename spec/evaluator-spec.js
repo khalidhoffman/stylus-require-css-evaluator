@@ -10,12 +10,12 @@ const fs = require('fs'),
 describe("RequireCSSEvaluator", function(){
     const requireCSSEvaluatorPlugin = require('../');
 
-    it("has no bearing unless used", function(done){
+    it("tests are initialized correctly", function(done){
         stylus(stylusSrc)
             .set('filename', stylusSrcPath)
             .render(function(err, str){
                 if (err) throw err;
-                assert.equal(str.indexOf('css-require-success') >= 0, false, "css test 'success' should not have been imported");
+                assert.equal(str.indexOf('css-require-success') >= 0, false, "css text 'success' should not have been imported");
                 done();
             })
     });
@@ -26,8 +26,19 @@ describe("RequireCSSEvaluator", function(){
             .use(requireCSSEvaluatorPlugin)
             .render(function(err, str){
                 if (err) throw err;
-                assert.equal(str.indexOf('css-require-success') >= 0, true, "css test 'success' should have been imported");
+                assert.equal(str.indexOf('css-require-success') >= 0, true, "css text 'success' should have been imported");
                 done();
             })
     })
+
+	it("properly parses URIs", function(done){
+        stylus(stylusSrc)
+            .set('filename', stylusSrcPath)
+            .use(requireCSSEvaluatorPlugin)
+            .render(function(err, str){
+                if (err) throw err;
+                assert.equal(str.indexOf('http://url-success.com') >= 0, true, "css text 'http://url-success.com' should have been imported");
+                done();
+            })
+	})
 });

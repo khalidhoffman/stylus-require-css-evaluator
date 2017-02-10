@@ -1,6 +1,6 @@
 {
   "name": "stylus-require-css-evaluator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "enables importing of css files in stylus via require",
   "main": "index.js",
   "dependencies": {
